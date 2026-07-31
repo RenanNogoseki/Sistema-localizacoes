@@ -1,0 +1,338 @@
+/* ============================================
+   ESTILOS GLOBAIS
+   ============================================ */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f2f2f2;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+header {
+    background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+    color: white;
+    padding: 18px 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* ============================================
+   ÁREA DE PESQUISA
+   ============================================ */
+.pesquisa {
+    padding: 15px 20px;
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 999;
+}
+
+.pesquisa-wrapper {
+    flex: 1;
+    position: relative;
+    min-width: 200px;
+}
+
+.pesquisa-icone {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #999;
+    pointer-events: none;
+    transition: color 0.3s;
+}
+
+.pesquisa-wrapper:focus-within .pesquisa-icone {
+    color: #1b5e20;
+}
+
+#buscar {
+    width: 100%;
+    padding: 14px 14px 14px 46px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+    background: #fafafa;
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+#buscar:focus {
+    border-color: #1b5e20;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(27, 94, 32, 0.1);
+}
+
+#buscar::placeholder {
+    color: #aaa;
+}
+
+/* Atalho de teclado */
+.pesquisa-atalho {
+    font-size: 12px;
+    color: #999;
+    background: #f0f0f0;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    white-space: nowrap;
+    user-select: none;
+}
+
+/* ============================================
+   CONTADOR DE RESULTADOS
+   ============================================ */
+.contador-resultados {
+    font-size: 14px;
+    color: #1b5e20;
+    padding: 6px 15px;
+    background: #e8f5e9;
+    border-radius: 8px;
+    display: none;
+    font-weight: 500;
+    border: 1px solid #c8e6c9;
+    white-space: nowrap;
+}
+
+.contador-resultados.visivel {
+    display: inline-block;
+    animation: fadeIn 0.3s ease;
+}
+
+.contador-resultados.nenhum {
+    color: #c62828;
+    background: #ffebee;
+    border-color: #ffcdd2;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   MAPA
+   ============================================ */
+#map {
+    height: calc(100vh - 140px);
+    width: 100%;
+}
+
+/* ============================================
+   MARCADORES PERSONALIZADOS
+   ============================================ */
+.marcador-personalizado {
+    background: transparent !important;
+    border: none !important;
+}
+
+/* ============================================
+   POPUP ESTILIZADO
+   ============================================ */
+.popup-estilizado .leaflet-popup-content-wrapper {
+    border-radius: 14px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+.popup-estilizado .leaflet-popup-content {
+    margin: 0;
+    padding: 0;
+    width: 100% !important;
+}
+
+.popup-estilizado .leaflet-popup-tip {
+    box-shadow: none;
+    background: #fff;
+}
+
+.popup-cooperativa {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.popup-header {
+    background: linear-gradient(135deg, #1b5e20, #2e7d32);
+    color: white;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+}
+
+.popup-icone {
+    font-size: 24px;
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.popup-nome {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.3;
+}
+
+.popup-info {
+    padding: 14px 18px;
+    background: #fafafa;
+}
+
+.popup-linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.popup-linha:last-child {
+    border-bottom: none;
+}
+
+.popup-label {
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+}
+
+.popup-valor {
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+    text-align: right;
+    max-width: 60%;
+}
+
+/* ============================================
+   BOTÕES DE NAVEGAÇÃO
+   ============================================ */
+.popup-acoes {
+    display: flex;
+    gap: 8px;
+    padding: 12px 18px 16px;
+    background: #fff;
+    border-top: 1px solid #eee;
+}
+
+.btn-navegacao {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.btn-google {
+    background: #e8f5e9;
+    color: #1b5e20;
+    border: 1px solid #c8e6c9;
+}
+
+.btn-google:hover {
+    background: #1b5e20;
+    color: #fff;
+    border-color: #1b5e20;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(27, 94, 32, 0.3);
+}
+
+.btn-waze {
+    background: #fff3e0;
+    color: #e65100;
+    border: 1px solid #ffe0b2;
+}
+
+.btn-waze:hover {
+    background: #e65100;
+    color: #fff;
+    border-color: #e65100;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(230, 81, 0, 0.3);
+}
+
+.btn-icone {
+    font-size: 16px;
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 18px;
+    }
+
+    .pesquisa {
+        padding: 12px 15px;
+    }
+
+    #buscar {
+        padding: 12px 12px 12px 42px;
+        font-size: 15px;
+    }
+
+    .pesquisa-atalho {
+        display: none;
+    }
+
+    .contador-resultados {
+        font-size: 13px;
+        padding: 4px 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .popup-acoes {
+        flex-direction: column;
+    }
+
+    .btn-navegacao {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    #map {
+        height: calc(100vh - 180px);
+    }
+}

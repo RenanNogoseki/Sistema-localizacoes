@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mapa da Cooperativa</title>
+
+<link
+rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🚜 Sistema de Localizações</h1>
+
+</header>
+
+<div class="pesquisa">
+
+<div class="pesquisa-wrapper">
+<span class="pesquisa-icone">🔍</span>
+<input
+type="text"
+id="buscar"
+placeholder="Pesquisar cooperado, fazenda ou município..."
+>
+</div>
+
+<span class="pesquisa-atalho" title="Atalho: Ctrl+K ou /">Ctrl+K</span>
+
+<span id="contador-resultados" class="contador-resultados"></span>
+
+</div>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>
